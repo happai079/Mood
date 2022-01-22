@@ -37,6 +37,9 @@
 		SELECT * FROM diary WHERE memNo=#{memNo} AND diaryDate=#{diaryDate}
 	</select>
 	
-	
+	<!-- 일기 수정 -->
+	<update id="updateDiary" parameterType="hashmap">
+		UPDATE diary SET diaryDate=#{diaryDate}, diaryEmoji=#{diaryEmoji}, diaryText=#{diaryText} WHERE diaryNo=#{diaryNo}
+	</update>
 	
 </mapper>

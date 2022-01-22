@@ -11,6 +11,6 @@ public interface IDiaryService {
 	void insertDiary(HashMap<String, Object> map);				// 일기 작성
 	DiaryVO showDetailDiaryNo(int diaryNo);						// 일기 상세 조회 - diaryNo 기준
 	DiaryVO showDetailDiaryMap(HashMap<String, Object> map);	// 일기 상세 조회 - date, memNo 기준
-	// void updateDiary(HashMap<String, Object> map);
+	void updateDiary(HashMap<String, Object> map);				// 일기 수정
 	// void deleteDiary(String diaryNo);
 }

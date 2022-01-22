@@ -119,6 +119,7 @@ public class DiaryController {
 		Map<String, ?> requestMap = RequestContextUtils.getInputFlashMap(request);
 		HashMap<String, Object> map = (HashMap<String, Object>) requestMap.get("diaryMap");
 		
+		System.out.println(map);
 		DiaryVO dvo = service.showDetailDiaryMap(map);
 		if(dvo != null) model.addAttribute("diary", dvo);
 		
@@ -135,5 +136,13 @@ public class DiaryController {
 		date += (" " + day);  // "2022-01-17 월요일" 형태의 String
 		model.addAttribute("date", date);
 		return "diary/diaryUpdateForm";
+	}
+	
+	// 일기 수정 기능
+	@ResponseBody
+	@RequestMapping("/diary/updateDiary")
+	public String updateDiary(@RequestParam HashMap<String, Object> map) {
+		service.updateDiary(map);
+		return "redirect:/diary/diaryList/" + map.get("memNo");
 	}
 }

@@ -38,6 +38,7 @@
 							<c:if test="${ not empty date }"><input type="text" class="todayText" name="diaryDate" readOnly value="${date}" /></c:if>
 							<input type="hidden" class="memNo" name="memNo" value="${ sessionScope.sMemNo }"/>
 							<c:if test="${ not empty diary }">
+							<input type="hidden" class="diaryNo" name="diaryNo" value="${ diary.diaryNo }"/>
 								<!-- emoji가 선태되어 있게 -->
 								<div class="emojiBox">
 									<c:set var="emoji" value="${ diary.diaryEmoji }"/>

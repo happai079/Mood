@@ -40,4 +40,9 @@ public class DiaryService implements IDiaryService {
 	public DiaryVO showDetailDiaryMap(HashMap<String, Object> map) {
 		return dao.showDetailDiaryMap(map);
 	}
+
+	@Override
+	public void updateDiary(HashMap<String, Object> map) {
+		dao.updateDiary(map);
+	}
 }

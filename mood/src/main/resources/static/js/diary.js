@@ -5,7 +5,7 @@
 $(function(){
 	/* submit 버튼 클릭 - ajax 처리 */
 	$('#diaryForm').on('submit', function(){
-		event.preventDefault();
+		// event.preventDefault();
 		let memNo = $('.memNo').val();
 		let date = $('.todayText').val().split(" ")[0];
 		let emoji = $("input[name='diaryEmoji']:checked").val();
@@ -30,15 +30,21 @@ $(function(){
 	/* submit 버튼 클릭 - ajax 처리 */
 	$('#diaryUpdateForm').on('submit', function(){
 		// event.preventDefault();
-		let formData = $('#diaryUpdateForm').serialize();
-		console.log(formData)		
+		let memNo = $('.memNo').val();
+		let diaryNo = $('.diaryNo').val();
+		let date = $('.todayText').val().split(" ")[0];
+		let emoji = $("input[name='diaryEmoji']:checked").val();
+		let text = $('.diaryText').val();
 		$.ajax({
 			type: 'post',
-			url: 'updateDiary',
-			data: formData,
+			url: '/diary/updateDiary',
+			data: {"diaryNo": diaryNo,
+				   "diaryDate": date,
+				   "diaryEmoji": emoji,
+				   "diaryText": text},
 			success: function(){
 				alert("일기 수정을 성공했습니다.\n일기 목록 페이지로 이동합니다.");
-				location.href="/diary/diaryList/"+$('.memNo').val();
+				location.href="/diary/diaryList/"+ memNo;
 			},
 			error: function(){
 				alert("전송 실패");
