@@ -33,12 +33,12 @@
 							<c:if test="${ empty sessionScope.sImg }">
 								<img src="<c:url value='/images/default-profile.png'/>" alt="profileImg"/>
 							</c:if>
-						<h3 class="profileName">${ sessionScope.sMemName }님</h3>
 						</div>
+						<h3 class="profileName">${ sessionScope.sMemName }님</h3>
 					</div>
 					<button class="myPage">My Page</button>
 					<div id="myPageBox">
-						<button class="updateProfile">회원 정보 수정</button>
+						<button class="updateProfile">회원 정보 조회/수정</button>
 						<button class="updateProfile">회원 탈퇴</button>
 					</div>
 					<a href="<c:url value='/logout'/>"><button class="logoutBtn">로그아웃</button></a>

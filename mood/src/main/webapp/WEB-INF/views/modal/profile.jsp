@@ -25,10 +25,11 @@
 				<div class="filebox">
 				    <input type="text" class="upload-name" value="첨부파일" placeholder="첨부파일" readOnly>
 				    <label for="file">파일찾기</label> 
-				    <input type="file" id="file" name="memImg">
-				</div>				
+				    <input type="file" id="file" name="uploadProfile">
+				</div>
+				<input type="hidden" name="memNo" value="${ sessionScope.sMemNo }"/>
 				<input type="text" id="name" name="memName" placeholder="이름 : ${ sessionScope.sMemName }"/><br>
-				<input type="submit" value="update" class="submitBtn"/>
+				<input type="submit" value="수정" class="submitBtn"/>
 			</form>
 		</div>
 	</body>
