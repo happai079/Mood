@@ -26,11 +26,11 @@
 				<c:if test="${ not empty sessionScope.sMemNo }">
 					<div id="profileBox">
 						<div class="profileImg">
-							<c:if test="${ not empty sessionScope.sImg }">
+							<c:if test="${ not empty sessionScope.sProfile }">
 								<!-- 외부 파일 경로 설정 및 파일 이름 session에 저장 -->
-								<img src="<c:url value='/image/${sessionScope.sImg}'/>" alt="profileImg"/>
+								<img src="<c:url value='/image/${sessionScope.sProfile}'/>" alt="profileImg"/>
 							</c:if>
-							<c:if test="${ empty sessionScope.sImg }">
+							<c:if test="${ empty sessionScope.sProfile }">
 								<img src="<c:url value='/images/default-profile.png'/>" alt="profileImg"/>
 							</c:if>
 						</div>
@@ -39,7 +39,7 @@
 					<button class="myPage">My Page</button>
 					<div id="myPageBox">
 						<button class="updateProfile">회원 정보 조회/수정</button>
-						<button class="updateProfile">회원 탈퇴</button>
+						<button class="deleteForm">회원 탈퇴</button>
 					</div>
 					<a href="<c:url value='/logout'/>"><button class="logoutBtn">로그아웃</button></a>
 				</c:if>
