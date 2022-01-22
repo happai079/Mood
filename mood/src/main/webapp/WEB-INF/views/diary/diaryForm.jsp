@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<meta name="description" content="How was your mood today?">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Diary</title>
+		<title>Diary 작성</title>
 		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/images/diary.ico'/>"/>
 		<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
@@ -33,6 +33,7 @@
 			<section>
 				<article id="diary">
 					<div id="diaryBox">
+						<h3>일기 작성</h3>
 						<form id="diaryForm" name="diaryForm">
 							<c:if test="${ not empty date }"><input type="text" class="todayText" name="diaryDate" readOnly value="${date}" /></c:if>
 							<input type="hidden" class="memNo" name="memNo" value="${ sessionScope.sMemNo }"/>
