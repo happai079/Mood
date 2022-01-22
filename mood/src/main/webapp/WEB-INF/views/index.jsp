@@ -21,6 +21,16 @@
 		<script src="js/calendar.js"></script>
 		<script src="js/gallery.js"></script>
 		<script src="js/profile.js"></script>
+		<script type="text/javascript">
+		 	$(function(){
+		 		// 회원 탈퇴
+		 		let memNo = "<%=session.getAttribute("sMemNo") %>";
+				$(".withdrawl").on('click', function(){
+					let answer = confirm("정말로 탈퇴하시겠습니까?");
+					if(answer) location.href="/deleteMember/" + memNo;
+				});
+		 	})
+		</script>
 	</head>
 	<body>
 		<div id="wrap">

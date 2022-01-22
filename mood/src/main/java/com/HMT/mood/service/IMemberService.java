@@ -13,5 +13,5 @@ public interface IMemberService {
 	void uploadProfile(ProfileVO profileVo);			// 프로필 사진 추가
 	void updateProfile(ProfileVO profileVo);			// 프로필 사진 수정
 	void updateMember(HashMap<String, Object> map);		// 회원 정보 수정
-	void deleteMember(String memNo);					// 회원 탈퇴
-}
+	void deleteMember(int memNo);						// 회원 탈퇴
+}	

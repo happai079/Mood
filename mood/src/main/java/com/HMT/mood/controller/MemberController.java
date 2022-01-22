@@ -6,14 +6,17 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.HMT.mood.model.MemberVO;
 import com.HMT.mood.model.ProfileVO;
@@ -154,6 +157,26 @@ public class MemberController {
 		service.updateMember(map);
 		session.setAttribute("sMemName", name);
 		
-		return "index";
+		return "redirect:/";
+	}
+	
+	// 회원 탈퇴
+	@RequestMapping("/deleteMember/{memNo}")
+	public String deleteMember(@PathVariable int memNo, HttpSession session) {
+		// 서버에서 파일 삭제
+		String deletePath = "C:/Mood/mood_file/";
+		String filePath = deletePath + session.getAttribute("sProfile");
+		File deleteFile = new File(filePath);
+		
+		if(deleteFile.exists()) {
+            deleteFile.delete(); 
+            System.out.println("파일을 삭제하였습니다.");
+        } else {
+            System.out.println("파일이 존재하지 않습니다.");
+        }
+		
+		service.deleteMember(memNo);
+		session.invalidate();
+		return "redirect:/";
 	}
 }

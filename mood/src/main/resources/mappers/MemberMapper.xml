@@ -48,7 +48,7 @@
   		</update>
   		
   		<!-- 회원 탈퇴 -->
-  		<delete id="deleteMember" parameterType="string">
+  		<delete id="deleteMember" parameterType="int">
   			DELETE FROM member WHERE memNo=#{memNo}
   		</delete>
   </mapper>

@@ -53,7 +53,7 @@ public class MemberService implements IMemberService {
 	}
 	
 	@Override
-	public void deleteMember(String memNo) {
+	public void deleteMember(int memNo) {
 		dao.deleteMember(memNo);
 	}
 }
