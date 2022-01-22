@@ -131,6 +131,18 @@ public class MemberController {
 		}
 		else {
 			System.out.println("===updateProfile===");
+			// 기존 파일 삭제
+			String filePath = uploadPath + session.getAttribute("sProfile");
+			File deleteFile = new File(filePath);
+			
+			if(deleteFile.exists()) {
+	            deleteFile.delete(); 
+	            System.out.println("파일을 삭제하였습니다.");
+	        } else {
+	            System.out.println("파일이 존재하지 않습니다.");
+	        }
+			
+			// 새로 저장
 			service.updateProfile(profileVo);
 			session.setAttribute("sProfile", savedFileName);
 		}
