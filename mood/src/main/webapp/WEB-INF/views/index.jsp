@@ -54,6 +54,7 @@
 				<article id="calendar">
 					<div id="calendarBox">
 						<h1>오늘 느낀 감정을 기록해보세요.</h1>
+						<h3>- 달력을 클릭하면 일기를 작성할 수 있어요. -</h3>
 						<h2 class="yearMonth"></h2>
 						<div class="prevTodayNextBox">
 							<i class="fas fa-chevron-left prevMonthBtn"></i>

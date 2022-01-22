@@ -24,6 +24,11 @@
 	color: rgb(143, 143, 143);
 }
 
+#calendarBox h3 {
+    font-size: 22px;
+    color: rgba(125, 63, 36, 0.67);
+}
+
 #calendarBox .yearMonth {
     padding: 20px;
 	font-size: 30px;
