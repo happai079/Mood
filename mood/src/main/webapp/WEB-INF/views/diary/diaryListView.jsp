@@ -17,6 +17,15 @@
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>	
 		<script src="<c:url value='/js/index.js'/>"></script>
 		<script src="<c:url value='/js/profile.js'/>"></script>
+		<script type="text/javascript">
+			function deleteCheck(diaryNo){
+					var answer = confirm("선택한 일기를 삭제하시겠습니까?");
+					if(answer == true){
+						// console.log(diaryNo);
+						location.href="/diary/deleteDiary/"+diaryNo;
+					}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -56,15 +65,7 @@
 							   		<td>${ diary.diaryEmoji }</td>		   			
 							   		<td>${ diary.diaryText }</td>
 							   		<!-- 삭제 여부 처리 -->
-							   		<td><a href="javascript:deleteCheck();" class="deleteBtn">삭제</a></td>
-							   		<script type="text/javascript">
-										function deleteCheck(){
-											var answer = confirm("선택한 일기를 삭제하시겠습니까?");
-											if(answer == true){
-												location.href="/diary/deleteDiary/${diary.diaryNo}";
-											}
-										}
-									</script>		   			
+							   		<td><a href="javascript:deleteCheck(${diary.diaryNo});">삭제</a></td>
 							   	</tr>
 						   </c:forEach>
 						</table>
