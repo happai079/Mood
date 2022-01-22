@@ -9,7 +9,7 @@ public interface IDiaryDAO {
 	ArrayList<DiaryVO> showDiaryList(int memNo);		// 일기 조회
 	DiaryVO showDetailDiary(String diaryNo);			// 일기 상세 조회
 	Integer haveDiary(HashMap<String, Object> map);		// 해당 날짜의 일기가 있는지 없는지 조회
-	// void insertDiray(HashMap<String, Object> map);
+	void insertDiary(HashMap<String, Object> map);		// 일기 작성
 	// void updateDiary(HashMap<String, Object> map);
 	// void deleteDiary(String diaryNo);
 }

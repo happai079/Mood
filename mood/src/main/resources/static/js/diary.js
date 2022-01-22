@@ -5,16 +5,21 @@
 $(function(){
 	/* submit 버튼 클릭 - ajax 처리 */
 	$('#diaryForm').on('submit', function(){
-		// event.preventDefault();		
+		event.preventDefault();
 		let memNo = $('.memNo').val();
-		let formData = $('#diaryForm').serialize();
+		let date = $('.todayText').val().split(" ")[0];
+		let emoji = $("input[name='diaryEmoji']:checked").val();
+		let text = $('.diaryText').val();
 		$.ajax({
 			type: 'post',
-			url: 'writeDiary',
-			data: formData,
+			url: '/diary/insertDiary',
+			data: {"memNo": memNo,
+				   "diaryDate": date,
+				   "diaryEmoji": emoji,
+				   "diaryText": text},
 			success: function(){
 				alert("일기 작성을 성공했습니다.\n일기 목록 페이지로 이동합니다.");
-				location.href="/diary/diaryList/"+memNo;
+				location.href="/diary/diaryList/"+ memNo;
 			},
 			error: function(){
 				alert("전송 실패");

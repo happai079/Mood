@@ -30,4 +30,9 @@ public class DiaryService implements IDiaryService {
 	public Integer haveDiary(HashMap<String, Object> map) {
 		return dao.haveDiary(map);
 	}
+
+	@Override
+	public void insertDiary(HashMap<String, Object> map) {
+		dao.insertDiary(map);
+	}
 }

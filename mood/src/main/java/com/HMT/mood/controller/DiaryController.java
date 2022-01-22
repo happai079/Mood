@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.HMT.mood.model.DiaryVO;
 import com.HMT.mood.service.DiaryService;
@@ -51,11 +53,9 @@ public class DiaryController {
 	}
 	
 	/* 달력 클릭시
-	 * - 해당 날짜에 작성된 일기가 있으면 일기 조회 폼으로 이동(showDetailDiary)
-	 * - 없으면 일기 작성 폼으로 이동(diaryForm)
+	 * - 해당 날짜에 작성된 일기가 있으면 일기 조회/수정 폼으로 이동(showDetailDiary/{diaryNo})
+	 * - 없으면 일기 작성 폼으로 이동(diaryForm/{date})
 	 */
-	
-	// 작성된 일기가 있는 지 조회
 	@RequestMapping("/havediary/{date}")
 	public String haveDiary(@PathVariable String date, HttpSession session) {
 		int memNo = (int) session.getAttribute("sMemNo");
@@ -66,9 +66,17 @@ public class DiaryController {
 		
 		Integer diaryNo = service.haveDiary(map);
 		
-		String result = "redirect:/diary/showDetailDiary/"+ map;
+		String result = "redirect:/diary/showDetailDiary/"+ diaryNo;
 		if(diaryNo == null) result = "redirect:/diary/diaryForm/" + date;
 		
 		return result;
+	}
+	
+	// 일기 작성 기능
+	@ResponseBody
+	@RequestMapping("/diary/insertDiary")
+	public String insertDiary(@RequestParam HashMap<String, Object> map) {
+		service.insertDiary(map);
+		return "redirect:/diary/diaryList/" + map.get("memNo");
 	}
 }

@@ -16,10 +16,16 @@
 		<script src="https://kit.fontawesome.com/836510a8a4.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>	
 		<script src="<c:url value='/js/index.js'/>"></script>	
-		<script src="<c:url value='/js/diary.js'/>"></script>	
+		<script src="<c:url value='/js/diary.js'/>"></script>
+		<script src="<c:url value='/js/profile.js'/>"></script>	
 	</head>
 	<body>
 		<div id="wrap">
+			<!-- Modal -->
+			<div id="modal">
+				<jsp:include page="/WEB-INF/views/modal/profile.jsp" flush="true" />
+			</div>
+			
 			<!-- Top -->
 			<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true" />
 			

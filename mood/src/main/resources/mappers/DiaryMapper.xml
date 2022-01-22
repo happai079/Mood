@@ -22,4 +22,9 @@
 		SELECT diaryNo FROM diary WHERE memNo=#{memNo} AND diaryDate=#{diaryDate}
 	</select>
 	
+	<!-- 일기 작성 -->
+	<insert id="insertDiary" parameterType="hashmap">
+		INSERT INTO diary (diaryDate, diaryEmoji, diaryText, memNo) VALUES (#{diaryDate},#{diaryEmoji},#{diaryText},#{memNo})
+	</insert>
+	
 </mapper>
