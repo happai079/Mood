@@ -23,7 +23,7 @@ $(function() {
 	
 	// submit 될때 비밀번호 확인 유효성 검사 -> 회원가입 ajax
 	$('.registerForm').submit(function(){
-		if(!confirmPW()) return false; 
+		if(!confirmPW()) return false;
 	}); 
 
 	/* 비밀번호 유효성 검사 */

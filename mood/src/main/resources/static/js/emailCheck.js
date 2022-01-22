@@ -10,7 +10,6 @@
 				type: 'post',
 				url: 'emailCheck',
 				data: {"memEmail": email},
-				dataType: 'text',
 				success: function(result){
 					if(result == "no_use"){
 						alert("사용할 수 없는 이메일입니다.");
