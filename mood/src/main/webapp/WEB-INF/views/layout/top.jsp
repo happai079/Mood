@@ -49,8 +49,15 @@
 		<!-- Side Menu -->
 		<nav>
 			<div id="sideMenuBox">
-				<a href="<c:url value='/diary/diaryList/${ sessionScope.sMemNo }'/>"><button class="diaryBtn">diary</button></a>
-				<button class="galleryBtn">gallery</button>
+				<!-- 로그인 전 -->
+				<c:if test="${ empty sessionScope.sMemNo }">
+					<a href="<c:url value='/loginForm'/>"><button>로그인 후에 이용가능합니다.</button></a>
+				</c:if>
+				<!-- 로그인 후 -->
+				<c:if test="${ not empty sessionScope.sMemNo }">
+					<a href="<c:url value='/diary/diaryList/${ sessionScope.sMemNo }'/>"><button class="diaryBtn">일기 목록</button></a>
+					<button class="galleryBtn">gallery</button>
+				</c:if>
 			</div>
 		</nav>
 	</body>

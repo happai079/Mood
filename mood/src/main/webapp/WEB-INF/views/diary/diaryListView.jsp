@@ -33,6 +33,8 @@
 				<article id="diaryList">
 					<h1 class="title">작성한 일기 목록</h1>
 					<a href="<c:url value='/diary/diaryForm/${ sessionScope.today }'/>"><button class="writeDiaryBtn">오늘의 일기 쓰기</button></a>
+					
+					<!-- 일기 목록 -->
 					<div id="diaryListBox">
 						<table>
 							<tr>
