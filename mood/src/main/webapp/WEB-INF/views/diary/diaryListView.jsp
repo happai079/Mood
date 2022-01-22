@@ -51,7 +51,7 @@
 							
 							<c:forEach items="${diaryList}" var="diary" varStatus="status">
 							   	<tr>
-							   		<td><a href="<c:url value='/diary/showDetailDiary/${ diary.diaryNo }'/>">${ status.count }</a></td>		   			
+							   		<td><a href="<c:url value='/diary/showDetailDiary/no/${ diary.diaryNo }'/>">${ status.count }</a></td>		   			
 							   		<td>${ diary.diaryDate }</td>		   			
 							   		<td>${ diary.diaryEmoji }</td>		   			
 							   		<td>${ diary.diaryText }</td>		   			

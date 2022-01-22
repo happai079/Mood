@@ -27,4 +27,16 @@
 		INSERT INTO diary (diaryDate, diaryEmoji, diaryText, memNo) VALUES (#{diaryDate},#{diaryEmoji},#{diaryText},#{memNo})
 	</insert>
 	
+	<!-- 일기 상세 조회 : diaryNo -->
+	<select id="showDetailDiaryNo" resultType="com.HMT.mood.model.DiaryVO" parameterType="int">
+		SELECT * FROM diary WHERE diaryNo=#{diaryNo}
+	</select>
+
+	<!-- 일기 상세 조회 : date, memNo -->
+	<select id="showDetailDiaryMap" resultType="com.HMT.mood.model.DiaryVO" parameterType="hashmap">
+		SELECT * FROM diary WHERE memNo=#{memNo} AND diaryDate=#{diaryDate}
+	</select>
+	
+	
+	
 </mapper>

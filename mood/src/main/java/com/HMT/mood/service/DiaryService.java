@@ -22,11 +22,6 @@ public class DiaryService implements IDiaryService {
 	}
 
 	@Override
-	public DiaryVO showDetailDiary(String diaryNo) {
-		return dao.showDetailDiary(diaryNo);
-	}
-	
-	@Override
 	public Integer haveDiary(HashMap<String, Object> map) {
 		return dao.haveDiary(map);
 	}
@@ -34,5 +29,15 @@ public class DiaryService implements IDiaryService {
 	@Override
 	public void insertDiary(HashMap<String, Object> map) {
 		dao.insertDiary(map);
+	}
+	
+	@Override
+	public DiaryVO showDetailDiaryNo(int diaryNo) {
+		return dao.showDetailDiaryNo(diaryNo);
+	}
+
+	@Override
+	public DiaryVO showDetailDiaryMap(HashMap<String, Object> map) {
+		return dao.showDetailDiaryMap(map);
 	}
 }
