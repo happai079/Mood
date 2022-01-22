@@ -45,4 +45,9 @@ public class DiaryService implements IDiaryService {
 	public void updateDiary(HashMap<String, Object> map) {
 		dao.updateDiary(map);
 	}
+
+	@Override
+	public void deleteDiary(int diaryNo) {
+		dao.deleteDiary(diaryNo);
+	}
 }

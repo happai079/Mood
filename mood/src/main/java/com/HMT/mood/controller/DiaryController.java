@@ -145,4 +145,12 @@ public class DiaryController {
 		service.updateDiary(map);
 		return "redirect:/diary/diaryList/" + map.get("memNo");
 	}
+	
+	// 일기 삭제 기능
+	@RequestMapping("/diary/deleteDiary/{diaryNo}")
+	public String deleteDiary(@PathVariable int diaryNo, HttpSession session) {
+		int memNo = (int) session.getAttribute("sMemNo");
+		service.deleteDiary(diaryNo);
+		return "redirect:/diary/diaryList/" + memNo;
+	}
 }

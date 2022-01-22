@@ -42,4 +42,9 @@
 		UPDATE diary SET diaryDate=#{diaryDate}, diaryEmoji=#{diaryEmoji}, diaryText=#{diaryText} WHERE diaryNo=#{diaryNo}
 	</update>
 	
+	<!-- 일기 삭제 -->
+	<delete id="deleteDiary" parameterType="int">
+		DELETE FROM diary WHERE diaryNo=#{diaryNo}
+	</delete>
+	
 </mapper>

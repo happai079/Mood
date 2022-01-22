@@ -54,8 +54,17 @@
 							   		<td><a href="<c:url value='/diary/showDetailDiary/no/${ diary.diaryNo }'/>">${ status.count }</a></td>		   			
 							   		<td>${ diary.diaryDate }</td>		   			
 							   		<td>${ diary.diaryEmoji }</td>		   			
-							   		<td>${ diary.diaryText }</td>		   			
-							   		<td><a href="<c:url value='/diary/deleteDiary/${diary.diaryNo}'/>">삭제</a></td>		   			
+							   		<td>${ diary.diaryText }</td>
+							   		<!-- 삭제 여부 처리 -->
+							   		<td><a href="javascript:deleteCheck();" class="deleteBtn">삭제</a></td>
+							   		<script type="text/javascript">
+										function deleteCheck(){
+											var answer = confirm("선택한 일기를 삭제하시겠습니까?");
+											if(answer == true){
+												location.href="/diary/deleteDiary/${diary.diaryNo}";
+											}
+										}
+									</script>		   			
 							   	</tr>
 						   </c:forEach>
 						</table>
