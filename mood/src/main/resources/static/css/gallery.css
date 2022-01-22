@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* gallery.css */
+
+/* Gallery */
+#gallery {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 600px;
+	margin-bottom: 70px;
+}
+
+#gallery h1 {
+    padding: 20px;
+    font-size: 50px;
+}
+
+#galleryBox {
+	position: relative;
+    width: 90%;
+    height: 90%;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#prevNextButtonBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    z-index: 10;
+}
+
+#prevNextButtonBox i {
+	padding: 20px 50px;
+	cursor: pointer;
+}
+
+.slidePanel {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200%;
+    height: 100%;
+}
+
+.photoCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    width: 16%;
+	height: 100%;
+    border: 3px solid rgba(224, 224, 224);	
+	border-radius: 10px;
+}
+
+.photoCard:not(:last-child) {
+	margin-right: 30px;
+}
+
+.photoCard img {
+	width: 100%;
+	height: 70%;
+	border-radius: 8px;
+	filter: saturate(70%);
+}
+
+.photoCard h3 {
+	width: 100%;
+	height: 10%;
+	font-size: 20px;
+}
+
+.photoCard p {
+	width: 100%;
+	height: 20%;
+	font-size: 18px;
+}

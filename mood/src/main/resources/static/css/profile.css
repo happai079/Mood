@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/* Profile Modal */
+
+.modal_contents {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 540px;
+    height: 550px;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgb(0 0 0 / 30%)
+}
+
+.fa-times-circle {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size: 30px;
+	text-align: right;
+	cursor: pointer;
+}
+
+.modal_contents h1 {
+	font-size: 80px;
+    position: absolute;
+    top: 5%;
+   	left: 30%;
+}
+
+.modal_contents img {
+	border-radius: 50%;
+    margin-top: 120px;
+    width: 35%;
+    height: 35%;
+    margin-bottom: 3px;
+}
+
+.fa-camera {
+	font-size: 33px;
+    color: gray;
+    position: absolute;
+    bottom: 28%;
+    right: 14%;
+}
+
+/* Custom Input File */
+.filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border-bottom: 3px solid  rgb(224, 224, 224);
+    width: 60%;
+    font-size: 20px;
+}
+
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    vertical-align: middle;
+    font-size: 20px;
+    background-color: #999999;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+#name {
+	text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    width: 50%;
+    border-bottom: 3px solid rgb(224, 224, 224);
+}
+
+.modal_contents .submitBtn {
+	width: 30%;
+    margin-top: 20px;
+    height: 10%;
+    font-size: 25px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    border-radius: 10px;
+}
+
+.modal_contents input:focus,
+.modal_contents input:active {
+	outline: none;
+	box-shadow: none;
+}

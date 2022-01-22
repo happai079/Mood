@@ -1,0 +1,200 @@
+@charset "UTF-8";
+/* index.css */
+
+#wrap {
+	width: 100%; 
+	text-align: center;
+}
+
+/* Modal*/
+#modal {
+	position: absolute; 
+	top: 0;
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	text-align: center;
+	display: none; 
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 20;
+}
+
+/* Header */
+#headerBox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	line-height: 100px;
+}
+
+#headerBox i {
+    font-size: 30px;
+    padding: 40px;
+    cursor: pointer;
+}
+
+/* Logo */
+#logoBox {
+	width: 50%;
+	height: 100%;
+	position: relative;
+	cursor: pointer;
+}
+
+.logoImg{
+	width: 70%;
+    height: 100%;
+}
+
+.logoImg img {
+	width: 70%;
+    height: 90%;
+    margin-left: 10%;
+}
+
+/* Top Menu */
+#topMenuBox {
+	display: none;
+}
+
+#topMenuBox.active {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 210px;
+	height: 100%;
+	padding: 20px;
+}
+
+#topMenuBox a {
+	width: 49%;
+	font-size: 24px;
+	font-weight: bold;
+	background: none;
+	cursor: pointer;
+}
+
+/* Profile */
+#profileBox {
+	display: flex;
+    align-items: center;
+    width: 8%;
+    height: 100%;
+}
+
+#profileBox .profileImg {
+	width: 70%;
+    height: 50%;
+    position: relative;
+}
+
+.profileImg img {
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+
+.profileName {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.logoutBtn {
+    width: 100%;
+    font-size: 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.myPage {
+    font-size: 20px;
+    background: none;
+    cursor: pointer;
+}
+
+#myPageBox {
+	display: none;
+}
+
+#myPageBox.show {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 180px;
+    height: 100px;
+    padding: 0 20px;
+   	background: white;
+   	border: 0.5px solid rgb(224, 224, 224);	
+    z-index: 10;
+}
+
+#myPageBox.show button {
+	width: 100%;
+	height: 50%;
+	font-size: 24px;
+	background: none;
+	cursor: pointer;
+}
+
+#myPageBox.show button:first-child {
+	border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+
+/* Side Menu */
+#sideMenuBox {
+	display: none;
+}
+
+#sideMenuBox.show {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+    left: 0px;
+    top: 100px;
+    width: 180px;
+    height: 120px;
+    padding: 0 20px;
+    background: white;
+    border: 0.5px solid rgb(224, 224, 224);
+    z-index: 10;
+}
+
+#sideMenuBox.show button {
+	width: 100%;
+	height: 50%;
+	font-size: 24px;
+	background: none;
+	cursor: pointer;
+}
+
+#sideMenuBox.show button:first-child {
+	height: 50px;
+}
+
+#sideMenuBox.show button:nth-child(2) {
+	border-top: 2px solid rgb(224, 224, 224);
+}
+
+/* Footer */
+#footerBox {
+	width: 100%;
+	height: 230px;
+    font-size: 25px;
+	background: rgb(224, 224, 224);
+}
+
+.footerAddress {
+	padding: 15px;
+}
