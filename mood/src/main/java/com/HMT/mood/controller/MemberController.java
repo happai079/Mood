@@ -1,5 +1,9 @@
 package com.HMT.mood.controller;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,5 +47,21 @@ public class MemberController {
 	public String insertMember(MemberVO memVo) {
 		service.insertMember(memVo);
 		return "redirect:/loginForm";	
+	}
+	
+	// 로그인 처리 : email와 pwd 전달 받아서 로그인 체크
+	@ResponseBody
+	@RequestMapping("/login")
+	public String loginCheck(@RequestParam HashMap<String, Object> param, HttpSession session) {
+		MemberVO member = service.loginCheck(param);
+		String loginResult = "fail";
+		
+		if(member != null) {
+			session.setAttribute("sMemNo", member.getMemNo());
+			session.setAttribute("sMemName", member.getMemName());
+			loginResult = "success";
+		}
+
+		return loginResult;
 	}
 }

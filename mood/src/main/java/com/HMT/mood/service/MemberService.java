@@ -24,6 +24,11 @@ public class MemberService implements IMemberService {
 	public void insertMember(MemberVO memVo) {
 		dao.insertMember(memVo);
 	}
+	
+	@Override
+	public MemberVO loginCheck(HashMap<String, Object> map) {
+		return dao.loginCheck(map);
+	}
 
 	@Override
 	public void deleteMember(String memNo) {
@@ -36,11 +41,4 @@ public class MemberService implements IMemberService {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public MemberVO loginCheck(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

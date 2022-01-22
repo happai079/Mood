@@ -15,7 +15,7 @@
 				<div class="logoImg"><a href="<c:url value='/'/>"><img src="<c:url value='/images/logo.png'/>" alt="logo"></a></div>
 				
 				<!-- 로그인 전 -->
-				<c:if test="${ empty sessionScope.sid }">
+				<c:if test="${ empty sessionScope.sMemNo }">
 					<div id="topMenuBox" class="active"> 
 						<a href="<c:url value='/loginForm'/>">로그인</a>
 						<a href="<c:url value='/registerForm'/>">회원가입</a>
@@ -23,10 +23,10 @@
 				</c:if>
 				
 				<!-- 로그인 후 --> 
-				<c:if test="${ not empty sessionScope.sid }">
+				<c:if test="${ not empty sessionScope.sMemNo }">
 					<div id="profileBox">
 						<div class="profileImg"><img src="<c:url value='/images/default-profile.png'/>" alt="default-profile"></div>
-						<h3 class="profileName">${ sessionScope.sName }님</h3>
+						<h3 class="profileName">${ sessionScope.sMemName }님</h3>
 					</div>
 					<button class="myPage">My Page</button>
 					<div id="myPageBox">
@@ -41,7 +41,7 @@
 		<!-- Side Menu -->
 		<nav>
 			<div id="sideMenuBox">
-				<a href="<c:url value='/diary/diaryList/${ sessionScope.sid }'/>"><button class="diaryBtn">diary</button></a>
+				<a href="<c:url value='/diary/diaryList/${ sessionScope.sMemNo }'/>"><button class="diaryBtn">diary</button></a>
 				<button class="galleryBtn">gallery</button>
 			</div>
 		</nav>

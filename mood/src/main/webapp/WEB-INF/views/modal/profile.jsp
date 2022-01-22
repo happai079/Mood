@@ -21,7 +21,7 @@
 				    <label for="file">파일찾기</label> 
 				    <input type="file" id="file" name="memImg">
 				</div>				
-				<input type="text" id="name" name="memName" placeholder="이름 : ${ sessionScope.sName }"/><br>
+				<input type="text" id="name" name="memName" placeholder="이름 : ${ sessionScope.sMemName }"/><br>
 				<input type="submit" value="update" class="submitBtn"/>
 			</form>
 		</div>
