@@ -13,7 +13,13 @@
 		<div class="modal_contents">
 			<i class="far fa-times-circle cancle"></i>
 			<h1>Profile</h1>
-			<img src="images/default-profile.png" alt="profileImg"/>
+			<c:if test="${ not empty sessionScope.sImg }">
+				<!-- 외부 파일 경로 설정 및 파일 이름 session에 저장 -->
+				<img src="<c:url value='/image/${sessionScope.sImg}'/>" alt="profileImg"/>
+			</c:if>
+			<c:if test="${ empty sessionScope.sImg }">
+				<img src="images/default-profile.png" alt="profileImg"/>
+			</c:if>
 			<form id="profileUpdate" name="profileUpdate" action=""<c:url value='/updateMember'/> enctype="multipart/form-data">
 				<!-- 커스텀 파일  -->
 				<div class="filebox">

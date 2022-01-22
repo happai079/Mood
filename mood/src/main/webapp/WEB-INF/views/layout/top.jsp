@@ -25,8 +25,16 @@
 				<!-- 로그인 후 --> 
 				<c:if test="${ not empty sessionScope.sMemNo }">
 					<div id="profileBox">
-						<div class="profileImg"><img src="<c:url value='/images/default-profile.png'/>" alt="default-profile"></div>
+						<div class="profileImg">
+							<c:if test="${ not empty sessionScope.sImg }">
+								<!-- 외부 파일 경로 설정 및 파일 이름 session에 저장 -->
+								<img src="<c:url value='/image/${sessionScope.sImg}'/>" alt="profileImg"/>
+							</c:if>
+							<c:if test="${ empty sessionScope.sImg }">
+								<img src="<c:url value='/images/default-profile.png'/>" alt="profileImg"/>
+							</c:if>
 						<h3 class="profileName">${ sessionScope.sMemName }님</h3>
+						</div>
 					</div>
 					<button class="myPage">My Page</button>
 					<div id="myPageBox">
