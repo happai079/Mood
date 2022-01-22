@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.HMT.mood.dao.IDiaryDAO">
+	<resultMap type="com.HMT.mood.model.DiaryVO" id="diaryResult">
+		<result property="diaryNo" column="diaryNo" />
+		<result property="diaryDate" column="diaryDate" />
+		<result property="diaryEmoji" column="diaryEmoji" />
+		<result property="diaryText" column="diaryText" />
+		<result property="memNo" column="memNo" />
+	</resultMap>
+	
+	<!-- 일기 목록 조회 -->
+	<select id="showDiaryList" resultType="com.HMT.mood.model.DiaryVO" parameterType="int">
+		SELECT * FROM diary WHERE memNo=#{memNo} ORDER BY diaryNo
+	</select>
+	
+	<!-- 일기 조회 -->
+	<select id="showDiary" resultType="com.HMT.mood.model.DiaryVO" parameterType="string">
+		SELECT * FROM diary WHERE diaryNo=#{diaryNo}
+	</select>
+	
+	<!-- 일기 작성 -->
+	<insert id="insertDiray" >
+		INSERT INTO diary (diaryDate, diaryEmoji, diaryText, memNo) VALUES (#{diaryDate}, #{diaryEmoji}, #{diaryText} ,#{memNo})
+	</insert>
+	
+	<!-- 일기 수정 -->
+	<update id="updateDiary" parameterType="hashmap">
+		UPDATE diary SET diaryEmoji=#{diaryEmoji}, diaryText=#{diaryText} WHERE diaryDate=#{diaryDate} AND memNo=#{memNo}
+	</update>
+
+	<!-- 일기 삭제 -->
+	<delete id="deleteDiary" parameterType="string">
+		DELETE FROM diary WHERE diaryNo=#{diaryNo}
+	</delete>
+</mapper>

@@ -6,8 +6,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="css/common.css">
-		<link rel="stylesheet" type="text/css" href="css/profile.css">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/profile.css'/>">
 	</head>
 	<body>
 		<div class="modal_contents">
