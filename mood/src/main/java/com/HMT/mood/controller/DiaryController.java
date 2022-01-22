@@ -5,7 +5,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,5 +48,27 @@ public class DiaryController {
 		model.addAttribute("date", date);
 
 		return "diary/diaryForm";
+	}
+	
+	/* 달력 클릭시
+	 * - 해당 날짜에 작성된 일기가 있으면 일기 조회 폼으로 이동(showDetailDiary)
+	 * - 없으면 일기 작성 폼으로 이동(diaryForm)
+	 */
+	
+	// 작성된 일기가 있는 지 조회
+	@RequestMapping("/havediary/{date}")
+	public String haveDiary(@PathVariable String date, HttpSession session) {
+		int memNo = (int) session.getAttribute("sMemNo");
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("memNo", memNo);
+		map.put("diaryDate", date);
+		
+		Integer diaryNo = service.haveDiary(map);
+		
+		String result = "redirect:/diary/showDetailDiary/"+ map;
+		if(diaryNo == null) result = "redirect:/diary/diaryForm/" + date;
+		
+		return result;
 	}
 }

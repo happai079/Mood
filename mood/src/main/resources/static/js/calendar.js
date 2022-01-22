@@ -7,8 +7,6 @@ $(function(){
 	
 	let nowYear = date.getFullYear();
 	let nowMonth = date.getMonth();	// 0~11까지
-	/*const days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
-	const day = days[date.getDay()];*/
 	
 	/* 달력 채우기 */
 	function makeCalendar(year, month) {
@@ -88,4 +86,14 @@ $(function(){
 		makeCalendar(nowYear, nowMonth);
 		checkToday();
 	});
+	
+	/* 달력 클릭시 이벤트 */
+	// 해당 날짜에 작성된 일기가 있으면 일기 조회 폼으로 이동(showDetailDiary)
+	// 없으면 일기 작성 폼으로 이동(diaryForm)
+	$(document).on('click', '.date', function(e){
+		e.stopImmediatePropagation();
+		let date = $(this)[0].classList[1];
+		location.href="/havediary/"+date;
+	})
+	
 });	
