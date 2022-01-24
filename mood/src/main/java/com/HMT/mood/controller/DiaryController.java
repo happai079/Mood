@@ -97,17 +97,9 @@ public class DiaryController {
 		
 		if(dvo != null) model.addAttribute("diary", dvo);
 		
-		String date = dvo.getDiaryDate();
 		// vo의 날짜 String -> LocalDate 변환
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate localDate = LocalDate.parse(date, formatter);
-		// System.out.println(localDate);
+		String date = localDate(dvo.getDiaryDate());
 		
-		// 요일 구하기
-		DayOfWeek dayOfWeek = localDate.getDayOfWeek();
-		String day = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.KOREAN);
-		
-		date += (" " + day);  // "2022-01-17 월요일" 형태의 String
 		model.addAttribute("date", date);
 		return "diary/diaryUpdateForm";
 	}
@@ -123,17 +115,9 @@ public class DiaryController {
 		DiaryVO dvo = service.showDetailDiaryMap(map);
 		if(dvo != null) model.addAttribute("diary", dvo);
 		
-		String date = dvo.getDiaryDate();
 		// vo의 날짜 String -> LocalDate 변환
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate localDate = LocalDate.parse(date, formatter);
-		// System.out.println(localDate);
+		String date = localDate(dvo.getDiaryDate());
 		
-		// 요일 구하기
-		DayOfWeek dayOfWeek = localDate.getDayOfWeek();
-		String day = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.KOREAN);
-		
-		date += (" " + day);  // "2022-01-17 월요일" 형태의 String
 		model.addAttribute("date", date);
 		return "diary/diaryUpdateForm";
 	}
@@ -152,5 +136,18 @@ public class DiaryController {
 		int memNo = (int) session.getAttribute("sMemNo");
 		service.deleteDiary(diaryNo);
 		return "redirect:/diary/diaryList/" + memNo;
+	}
+	
+	// 요일 구하는 메서드
+	public String localDate(String date) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.parse(date, formatter);
+		// System.out.println(localDate);
+		
+		// 요일 구하기
+		DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+		String day = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.KOREAN);
+		
+		return date += (" " + day);
 	}
 }
