@@ -16,10 +16,10 @@
 			
 			<c:if test="${ not empty sessionScope.sProfile }">
 				<!-- 외부 파일 경로 설정 및 파일 이름 session에 저장 -->
-				<img src="<c:url value='/image/${sessionScope.sProfile}'/>" alt="profileImg"/>
+				<img class="profileImg" src="<c:url value='/image/${sessionScope.sProfile}'/>" alt="profileImg"/>
 			</c:if>
 			<c:if test="${ empty sessionScope.sProfile }">
-				<img src="images/default-profile.png" alt="profileImg"/>
+				<img class="profileImg" src="images/default-profile.png" alt="profileImg"/>
 			</c:if>
 			<form id="profileUpdate">
 				<!-- 커스텀 파일  -->
